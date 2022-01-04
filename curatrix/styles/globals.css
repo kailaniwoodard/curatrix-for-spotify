@@ -1,3 +1,8 @@
+/*! Changes made for Curatrix
+ *
+ * Added customized font to better simulate Spotify's aesthetics (https://github.com/dw5/Metropolis1)
+ */
+
 @font-face {
   font-family: 'metropolis';
   src:
