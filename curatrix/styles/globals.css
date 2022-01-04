@@ -1,3 +1,91 @@
+@font-face {
+  font-family: 'metropolis';
+  src:
+    local("metropolis"),
+    url("https://github.com/dw5/Metropolis/tree/master/Fonts/Webfonts/WOFF/Metropolis-Thin.woff") format("woff"),
+    url("/fonts/metroplis/woff/Metropolis-Thin.woff") format("woff"),
+    url("/fonts/metroplis/ttf/Metropolis-Thin.ttf") format("ttf");
+  font-weight: thin;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'metropolis';
+  src:
+    local("metropolis"),
+    url("https://github.com/dw5/Metropolis/tree/master/Fonts/Webfonts/WOFF/Metropolis-ThinItalic.woff") format("woff"),
+    url("/fonts/metroplis//woff/Metropolis-ThinItalic.woff") format("woff"),
+    url("/fonts/metroplis//ttf/Metropolis-ThinItalic.ttf") format("ttf");
+  font-weight: thin;
+  font-style: italic;
+}
+
+@font-face {
+ font-family: 'metropolis';
+ src:
+   local("metropolis"),
+   url("https://github.com/dw5/Metropolis/tree/master/Fonts/Webfonts/WOFF/Metropolis-Regular.woff") format("woff"),
+   url("/fonts/metroplis//woff/Metropolis-Regular.woff") format("woff"),
+   url("/fonts/metroplis//ttf/Metropolis-Regular.ttf") format("ttf");
+ font-weight: normal;
+ font-style: normal;
+}
+
+@font-face {
+ font-family: 'metropolis';
+ src:
+   local("metropolis"),
+   url("https://github.com/dw5/Metropolis/tree/master/Fonts/Webfonts/WOFF/Metropolis-RegularItalic.woff") format("woff"),
+   url("/fonts/metroplis//woff/Metropolis-RegularItalic.woff") format("woff"),
+   url("/fonts/metroplis//ttf/Metropolis-RegularItalic.ttf") format("ttf");
+ font-weight: normal;
+ font-style: italic;
+}
+
+@font-face {
+ font-family: 'metropolis';
+ src:
+   local("metropolis"),
+   url("https://github.com/dw5/Metropolis/tree/master/Fonts/Webfonts/WOFF/Metropolis-Semibold.woff") format("woff"),
+   url("/fonts/metroplis//woff/Metropolis-Semibold.woff") format("woff"),
+   url("/fonts/metroplis//ttf/Metropolis-Semibold.ttf") format("ttf");
+ font-weight: 600;
+ font-style: normal;
+}
+
+@font-face {
+ font-family: 'metropolis';
+ src:
+   local("metropolis"),
+   url("https://github.com/dw5/Metropolis/tree/master/Fonts/Webfonts/WOFF/Metropolis-SemiboldItalic.woff") format("woff"),
+   url("/fonts/metroplis//woff/Metropolis-SemiboldItalic.woff") format("woff"),
+   url("/fonts/metroplis//ttf/Metropolis-SemiboldItalic.ttf") format("ttf");
+ font-weight: 600;
+ font-style: italic;
+}
+
+@font-face {
+ font-family: 'metropolis';
+ src:
+   local("metropolis"),
+   url("https://github.com/dw5/Metropolis/tree/master/Fonts/Webfonts/WOFF/Metropolis-Bold.woff") format("woff"),
+   url("/fonts/metroplis//woff/Metropolis-Bold.woff") format("woff"),
+   url("/fonts/metroplis//ttf/Metropolis-Bold.ttf") format("ttf");
+ font-weight: bold;
+ font-style: normal;
+}
+
+@font-face {
+ font-family: 'metropolis';
+ src:
+   local("metropolis"),
+   url("https://github.com/dw5/Metropolis/tree/master/Fonts/Webfonts/WOFF/Metropolis-BoldItalic.woff") format("woff"),
+   url("/fonts/metroplis//woff/Metropolis-BoldItalic.woff") format("woff"),
+   url("/fonts/metroplis//ttf/Metropolis-BoldItalic.ttf") format("ttf");
+ font-weight: bold;
+ font-style: italic;
+}
+
 html,
 body {
   padding: 0;
