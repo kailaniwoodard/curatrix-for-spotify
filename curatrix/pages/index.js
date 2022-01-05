@@ -24,9 +24,10 @@ export default function Home() {
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
                 strategy="lazyOnLoad">
         </script>
-        <script src="https://github.com/StartBootstrap/startbootstrap-grayscale/blob/master/dist/js/scripts.js"
-                strategy="beforeInteractive">
-        </script>
+        // Bootstrap core JS
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        // Core theme JS
+        <script src="static/js/scripts.js"></script>
       </Head>
       <main>
         <body id="page-top">
@@ -163,7 +164,6 @@ export default function Home() {
         </body>
       </main>
       <footer className="footer bg-black small text-center text-white-50"><div className="container px-4 px-lg-5">Copyright &copy; Curatrix for Spotify 2022</div></footer>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </div>
   )
 }
