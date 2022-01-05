@@ -52,7 +52,8 @@ export default function Home() {
                       <div className="text-center">
                           <h1 className="text-white mx-auto my-0 text-uppercase">Curatrix</h1>
                           <img className="img-center img-resize-logo" src="/img/for_Spotify.png" alt="for Spotify" />
-                          <h6 className="text-white-50 mx-auto mt-2 mb-5 fw-lighter fst-italic">created by lazy listeners, for lazy listeners</h6>
+                          <h6 className="text-white-50 mx-auto mt-2 mb-5 fw-lighter fst-italic">created by lazy listeners<br/>
+                                                                                                for lazy listeners</h6>
                           <a className="btn btn-primary" href="#about">Get Started</a>
                       </div>
                   </div>
