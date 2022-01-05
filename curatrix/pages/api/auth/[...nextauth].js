@@ -2,36 +2,25 @@
 import NextAuth from 'next-auth';
 import SpotifyProvider from 'next-auth/providers/spotify';
 
-const scopes = ['user-read-email',
-                'user-read-private',
-                'user-library-read',
-                'playlist-modify-private',
-                'playlist-read-collaborative',
-                'playlist-read-private',
-                'user-top-read',
-                'playlist-modify-public'
-              ].join(",");
-
 export default NextAuth({
   providers: [
     SpotifyProvider({
-      authorization: {
-        params: {scopes},
-      },
-      client_id: process.env.SPOTIFY_CLIENT_ID,
-      client_secret: process.env.SPOTIFY_CLIENT_SECRET,
+      authorization:
+        // Modify authorization link to contain all scopes required for Curatrix
+        'https://accounts.spotify.com/authorize?scope=user-read-email,playlist-read-private',
+        clientID: process.env.SPOTIFY_CLIENT_ID,
+        clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
     }),
   ],
   callbacks: {
     async jwt({token, account}) {
       if (account) {
-        token.id = account.id;
-        token.accessToken = account.access_token;
+        token.accessToken = account.refresh_token;
       }
       return token;
     },
     async session(session, user) {
-      session.user = token;
+      session.user = user;
       return session;
     },
   },
