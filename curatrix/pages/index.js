@@ -25,58 +25,37 @@ export default function Home() {
                 strategy="lazyOnLoad">
         </script>
       </Head>
-
       <main>
-        <h1>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p>
-          Get started by editing{' '}
-          <code>pages/index.js</code>
-        </p>
-
-        <div>
-          <a href="https://nextjs.org/docs">
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn">
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <body id="page-top">
+          <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+              <div className="container px-4 px-lg-5">
+                  <a className="navbar-brand" href="#page-top">Curatrix for Spotify</a>
+                  <button className="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                      Menu
+                      <i className="fas fa-bars"></i>
+                  </button>
+                  <div className="collapse navbar-collapse" id="navbarResponsive">
+                      <ul className="navbar-nav ms-auto">
+                          <li className="nav-item"><a className="nav-link" href="#about">About</a></li>
+                          <li className="nav-item"><a className="nav-link" href="#projects">Projects</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </nav>
+          <header className="masthead">
+              <div className="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                  <div className="d-flex justify-content-center">
+                      <div className="text-center">
+                          <h1 className="mx-auto my-0 text-uppercase">Curatrix</h1>
+                          <img className="img-center img-resize-logo" src="/img/for_Spotify.png" alt="for Spotify" />
+                          <h6 className="text-white-50 mx-auto mt-2 mb-5 fw-lighter fst-italic">created by lazy listeners, for lazy listeners</h6>
+                          <a className="btn btn-primary" href="#about">Get Started</a>
+                      </div>
+                  </div>
+              </div>
+          </header>
+        </body>
       </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
   )
 }
