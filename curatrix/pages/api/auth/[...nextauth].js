@@ -6,11 +6,10 @@ export default NextAuth({
   providers: [
     SpotifyProvider({
       authorization:
-        // Modify authorization link to contain all scopes required for Curatrix
         'https://accounts.spotify.com/authorize?scope=user-read-email,playlist-read-private',
-        clientID: process.env.SPOTIFY_CLIENT_ID,
-        clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-    }),
+      client_id: process.env.SPOTIFY_CLIENT_ID,
+      client_secret: process.env.SPOTIFY_CLIENT_SECRET
+    })
   ],
   callbacks: {
     async jwt({token, account}) {
