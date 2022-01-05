@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import Script from 'next/script'
+import {signIn} from 'next-auth/react'
 
 export default function Home() {
   return (
@@ -54,7 +55,7 @@ export default function Home() {
                           <img className="img-center img-resize-logo" src="/img/for_Spotify.png" alt="for Spotify" />
                           <h6 className="text-white mx-auto mt-2 mb-5 fw-lighter fst-italic">created by lazy listeners<br/>
                                                                                                 for lazy listeners</h6>
-                          <a className="btn btn-primary" href="#about">Get Started</a>
+                          <button className="btn btn-primary" onClick={() => signIn("spotify")}>Get Started</button>
                       </div>
                   </div>
               </div>
