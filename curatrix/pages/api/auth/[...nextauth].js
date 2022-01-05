@@ -2,24 +2,36 @@
 import NextAuth from 'next-auth';
 import SpotifyProvider from 'next-auth/providers/spotify';
 
+const scopes = ['user-read-email',
+                'user-read-private',
+                'user-library-read',
+                'playlist-modify-private',
+                'playlist-read-collaborative',
+                'playlist-read-private',
+                'user-top-read',
+                'playlist-modify-public'
+              ].join(",");
+
 export default NextAuth({
   providers: [
     SpotifyProvider({
-      authorization:
-        'https://accounts.spotify.com/authorize?scope=user-read-email,playlist-read-private',
+      authorization: {
+        params: {scopes},
+      },
       client_id: process.env.SPOTIFY_CLIENT_ID,
-      client_secret: process.env.SPOTIFY_CLIENT_SECRET
-    })
+      client_secret: process.env.SPOTIFY_CLIENT_SECRET,
+    }),
   ],
   callbacks: {
     async jwt({token, account}) {
       if (account) {
-        token.accessToken = account.refresh_token;
+        token.id = account.id;
+        token.accessToken = account.access_token;
       }
       return token;
     },
     async session(session, user) {
-      session.user = user;
+      session.user = token;
       return session;
     },
   },
