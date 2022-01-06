@@ -55,7 +55,7 @@ export default function Home() {
                           <img className="img-center img-resize-logo" src="/img/for_Spotify.png" alt="for Spotify" />
                           <h6 className="text-white mx-auto mt-2 mb-5 fw-lighter fst-italic">created by lazy listeners<br/>
                                                                                                 for lazy listeners</h6>
-                          <button className="btn btn-primary" onClick={() => signIn("spotify")}>Get Started</button>
+                          <button className="btn btn-primary" onClick={() => signIn("spotify", { callbackUrl: "/" })}>Get Started</button>
                       </div>
                   </div>
               </div>
