@@ -1,8 +1,8 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import Script from 'next/script'
-import { signIn } from 'next-auth/react'
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
+import Script from 'next/script';
+import { signIn } from 'next-auth/react';
 
 export default function Home() {
   return (
@@ -167,5 +167,5 @@ export default function Home() {
       </main>
       <footer className="footer bg-black small text-center text-white-50"><div className="container px-4 px-lg-5">Copyright &copy; Curatrix for Spotify 2022</div></footer>
     </div>
-  )
+  );
 }
