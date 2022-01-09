@@ -64,14 +64,25 @@ export const setAuthCookie = async (
       opts.maxAge /= 1000
     }
 
-    res.setHeader('Set-Cookie', serialize('auth.sesson', stringValue, opts))
+    res.setHeader('Set-Cookie', serialize('auth.session', stringValue, opts))
   } catch (error) {
     console.error('Failed to seal session object', error)
     return
   }
 }
 
-// TODO: Write methods for accessing session cookies
+export const getSessionCookie = async (
+  cookies: Record<string, string>
+): Promise<UserSession> => {
+  if (!cookies['auth.session']) {
+    throw new Error('Authenticated session not found!')
+  }
+
+  const cookie = cookies['auth.session']
+  const decoded = await Iron.unseal(cookie, SESSION_SECRET, Iron.defaults)
+
+  return decoded
+}
 
 export const sendRefreshRedirect = (res: NextApiResponse, path = '/') => {
   res.status(200)
