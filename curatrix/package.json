@@ -8,12 +8,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.24.0",
+    "cookie": "^0.4.1",
+    "ironjs": "^0.0.23-alpha",
     "next": "12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "spotify-web-api-node": "^5.0.2"
   },
   "devDependencies": {
+    "@types/react": "^17.0.38",
     "eslint": "8.6.0",
     "eslint-config-next": "12.0.7",
     "eslint-plugin-react": "^7.28.0",
