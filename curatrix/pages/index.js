@@ -1,8 +1,8 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
-import Script from 'next/script';
-import { signIn } from 'next-auth/react';
+import Head from 'next/head'
+import Image from 'next/image'
+import Link from 'next/link'
+import Script from 'next/script'
+import { signIn } from 'next-auth/react'
 
 export default function Home() {
   return (
@@ -55,7 +55,7 @@ export default function Home() {
                           <img className="img-center img-resize-logo" src="/img/for_Spotify.png" alt="for Spotify" />
                           <h6 className="text-white mx-auto mt-2 mb-5 fw-lighter fst-italic">created by lazy listeners<br/>
                                                                                                 for lazy listeners</h6>
-                          <button className="btn btn-primary" onClick={() => signIn("spotify", { callbackUrl: "/" })}>Get Started</button>
+                          <button className="btn btn-primary" onClick={() => window.location.assign('/api/auth/login')}>Get Started</button>
                       </div>
                   </div>
               </div>
@@ -167,5 +167,5 @@ export default function Home() {
       </main>
       <footer className="footer bg-black small text-center text-white-50"><div className="container px-4 px-lg-5">Copyright &copy; Curatrix for Spotify 2022</div></footer>
     </div>
-  );
+  )
 }
