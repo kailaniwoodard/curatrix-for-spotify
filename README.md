@@ -9,6 +9,13 @@ Curatrix uses **Spotify Web API** to determine your listening habits and lets yo
 tools used:
 * Next.js
 * Bootstrap(check version at some point)
-* spotify-web-api-js ,, JMPerez
+* spotify-web-api-node ,, JMPerez
 * Greyscale by Start Bootstrap
-* Next-Auth
+* <strike>Next-Auth</strike> axed, nothing personal but not suitable for this application
+* https://markmurray.co/blog/next-auth/ my mf dude
+* axios
+* iron
+* cookie
+
+notes:
+promise reliant!!!!
