@@ -1,4 +1,5 @@
-import * as iron from 'ironjs'
+import axios from 'axios'
+import * as Iron from 'ironjs'
 import { serialize, CookieSerializeOptions } from 'cookie'
 import { NextApiRequest, NextApiResponse } from 'next'
 
@@ -82,13 +83,6 @@ export const getSessionCookie = async (
   const decoded = await Iron.unseal(cookie, SESSION_SECRET, Iron.defaults)
 
   return decoded
-}
-
-export const sendRefreshRedirect = (res: NextApiResponse, path = '/') => {
-  res.status(200)
-  return res.send(
-    `<html><head><meta http-equiv="refresh" content=1, url="${path}"></head></html>`
-  )
 }
 
 export const encodeAuth = (id: string, secret: string) => {
