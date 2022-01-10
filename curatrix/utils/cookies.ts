@@ -56,7 +56,7 @@ export const setAuthCookie = async (
 
     const stringValue =
       typeof signedSession === 'object'
-      ? 'j:' JSON.stringify(signedSession)
+      ? 'j:' + JSON.stringify(signedSession)
       : String(signedSession)
 
     if ('maxAge' in opts) {

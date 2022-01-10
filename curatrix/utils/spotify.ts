@@ -1,8 +1,8 @@
-import SpotifyWebApi from 'spotify-web-api-node'
+import Spotify from 'spotify-web-api-node'
 
 // Create new instance of the Spotify API
-const createSpotifyApi = (token: string) => {
-  const spotify = new SpotifyWebApi({
+export const createSpotifyApi = (token: string) => {
+  const spotify = new Spotify({
     clientId: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
     redirectUri: process.env.REDIRECT_URI,
