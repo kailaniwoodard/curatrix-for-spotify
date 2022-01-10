@@ -14,12 +14,12 @@ const sendRefreshRedirect = (res: NextApiResponse, path = '../../welcome') => {
   )
 }
 
-export const getAuth = async () => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   const encodedAuth = new Buffer(CLIENT_ID + ":" + CLIENT_SECRET).toString("base64")
   const headers = {
     headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/x-www.form-urlencoded',
+    'Content-Type': 'application/x-www-form-urlencoded',
     Authorization: `Basic ${encodedAuth}`
     }
   }
@@ -34,14 +34,13 @@ export const getAuth = async () => {
       dataStr,
       headers
     )
-    console.log(response.data.access_token)
-    return response.data.access_token
+
+  console.log(response.data.access_token)
+  return response.data.access_token
   } catch (error) {
     console.log(error)
   }
 }
-
-export default getAuth
 
 /**
 export const getToken = async (req: NextApiRequest, res: NextApiResponse) => {
