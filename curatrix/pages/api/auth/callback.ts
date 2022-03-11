@@ -1,5 +1,8 @@
 import axios from 'axios'
+import querystring from 'querystring'
 import { NextApiRequest, NextApiResponse} from 'next'
+import { setAuthCookie } from '../../../utils/cookies'
+import createSpotifyApi from '../../../utils/spotify'
 
 const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = process.env
 
@@ -10,7 +13,8 @@ const sendRefreshRedirect = (res: NextApiResponse, path = '../../welcome') => {
   )
 }
 
-export const getAuthToken = async () => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
+  const { code } = req.query
   const encodedAuth = new Buffer(CLIENT_ID + ":" + CLIENT_SECRET).toString("base64")
   const headers = {
     headers: {
@@ -19,36 +23,54 @@ export const getAuthToken = async () => {
     Authorization: `Basic ${encodedAuth}`
     }
   }
-  const data = {
-    grant_type: 'client_credentials',
+  const request = {
+    grant_type: 'authorization_code',
+    code,
+    redirect_uri: REDIRECT_URI,
   }
-  const dataStr = new URLSearchParams(data).toString()
 
   try {
-    const response = await axios.post(
+    const { data } = await axios.post(
       'https://accounts.spotify.com/api/token',
-      dataStr,
+      querystring.stringify(request),
       headers
     )
 
-    console.log('Success! Auth token retrieved!')
-    return response.data.access_token
+
+    const spotify = createSpotifyApi(data.access_token)
+
+    const profile = await spotify.getMe()
+
+    const session = {
+      user: {
+        id: profile.body.id,
+        display_name: profile.body.display_name,
+        email: profile.body.email,
+        image_url: profile.body.images.find(image => image.url).url
+      },
+      token: {
+        access_token: data.access_token,
+        token_type: data.token_type,
+        expires_in: data.expires_in,
+        refresh_token: data.refresh_token,
+        scope: data.scope
+      }
+    }
     
+    console.log(session)
+
+    await setAuthCookie(res, session, {
+      maxAge: data.expires_in * 1000
+    })
+
+    console.log('Success! Credentials retrieved!')
+    console.log(`Testing printing display name ${session.user.display_name}`)
+
+    return sendRefreshRedirect(res)
   } catch (error) {
-    console.log('Failed to retrieve auth token!')
-    return null
-  }  
-}
-
-export const authToken = getAuthToken()
-
-export default async(req: NextApiRequest, res: NextApiResponse) => {
-  if (authToken != null) {
-    sendRefreshRedirect(res)
-  } else {
     res.status(400)
     res.send(
       `<html><head><meta http-equiv="refresh" content=1;url="${'../../index'}"></head></html>`,
     )
-  }
+  }  
 }
