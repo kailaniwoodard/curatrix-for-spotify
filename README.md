@@ -16,6 +16,8 @@ tools used:
 * axios
 * iron
 * cookie
+* querystring, deprecated but using URLSearchParams was not feasible
+* mimic-fn
 
 notes:
 promise reliant!!!!
